@@ -13,6 +13,9 @@
     "typescript": "^5.7.2"
   },
   "scripts": {
-    "build":"swc src -d dist && tsc"
+    "build": "swc src -d dist && tsc"
+  },
+  "dependencies": {
+    "@types/node": "^22.10.1"
   }
 }
