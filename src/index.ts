@@ -1,3 +1,3 @@
-const a : string = "try one";
+const a : string = "try two";
 
-console.log(a);
+console.log(a)
