@@ -14,7 +14,21 @@ jobs:
     - name : Checkout code
       uses : actions/checkout@v3
 
-    #2. AWS CLI 설치
+    # 2. Node.js 세팅 (yarn을 사용하기 위해 Node.js 설치)
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  # Node.js 버전 설정 (필요에 맞게 변경)
+
+    # 3. 종속성 설치
+    - name: Install dependencies
+      run: yarn install
+
+    # 4. 빌드 실행 (yarn build)
+    - name: Build the project
+      run: yarn build
+
+    #5. AWS CLI 설치
     - name : Set up AWS CLI
       uses : aws-actions/configure-aws-credentials@v1
       with:
@@ -22,6 +36,6 @@ jobs:
         aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
         aws-region : ap-northeast-2 #2 서울 리전, 필요한 리전으로 변경
 
-    #3. S3 버킷에 파일 동기화
+    #6. S3 버킷에 파일 동기화
     - name : Sync files to S3
       run : aws s3 sync ./dist s3://user-test-s3-bucket-1 --delete
