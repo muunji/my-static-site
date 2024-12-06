@@ -5,8 +5,14 @@
   },
   "pipeline": {
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^swc","^tsc"],
       "outputs": ["dist/**"]
+    },
+    "swc":{
+      "run":"swc src -d dist"
+    },
+    "tsc":{
+      "run":"tsc"
     }
   }
 }
