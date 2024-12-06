@@ -24,4 +24,4 @@ jobs:
 
     #3. S3 버킷에 파일 동기화
     - name : Sync files to S3
-      run : aws s3 sync ./dist s3://user-test-s3-buchket-1 --delete
+      run : aws s3 sync ./dist s3://user-test-s3-bucket-1 --delete
