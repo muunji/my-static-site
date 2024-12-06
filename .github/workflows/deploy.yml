@@ -12,7 +12,7 @@ jobs:
     steps:
     #1.코드 체크아웃
     - name : Checkout code
-      uses : actions/cehckout@v3
+      uses : actions/checkout@v3
 
     #2. AWS CLI 설치
     - name : Set up AWS CLI
